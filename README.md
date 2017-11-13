@@ -1,7 +1,7 @@
 # Yelp Clone - Makers Academy Project
 ## Week 8
 
-#Project Outline
+# Project Outline
 
 ![Yelp screenshot](https://github.com/makersacademy/course/blob/master/images/yelp.jpg)
 
@@ -14,14 +14,14 @@ This week's project is a clone of [Yelp](http://www.yelp.co.uk). The goal is to 
 * Validations
 * AJAX in Rails
 
-#How to run the app locally
+# How to run the app locally
 
 * Clone the repository
 * Run `rspec` to see the tests and test coverage
 * Run `bin/rails server`
 * Visit `http://localhost:3000`
 
-#User Stories
+# User Stories
 
 V1 Specification
 Visitors can create new restaurants using a form, specifying a name and description
