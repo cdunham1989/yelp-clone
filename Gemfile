@@ -39,7 +39,7 @@ group :development, :test do
   # Adds support for Rspec, Capybara system testing and selenium driver and test coverage
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
