@@ -1,5 +1,4 @@
-# Yelp Clone - Makers Academy Project
-## Week 8
+# Yelp Clone - Makers Academy Project (Week 8)
 
 # Project Outline
 
@@ -83,3 +82,10 @@ As a restaurateur
 So that I know the reviews my customers give are useful
 I want the review to be validated before it is submitted
 ```
+
+## Project Team
+
+* Chris Dunham
+* [Ed Lowther](https://github.com/edlowther)
+* [Oliver Pople](https://github.com/oliverpople)
+* [Alex Scott-Tonge](https://github.com/alexscotttonge)
