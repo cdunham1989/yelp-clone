@@ -18,11 +18,11 @@ class ReviewsTest < ApplicationSystemTestCase
 
     click_on "See reviews"
 
-    click_on "Add review"
+    click_on "New review"
 
     fill_in "rating", with: "5"
     fill_in "description", with: "good food"
     click_on "Save Review"
-    assert_text "Rating: 5"
+    assert_text "good food"
   end
 end
