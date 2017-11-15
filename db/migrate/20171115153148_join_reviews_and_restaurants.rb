@@ -9,7 +9,7 @@ class JoinReviewsAndRestaurants < ActiveRecord::Migration[5.1]
 
     create_table :reviews do |t|
       t.belongs_to :restaurant, index: true
-      t.string :rating
+      t.integer :rating
       t.text :description
 
       t.timestamps
