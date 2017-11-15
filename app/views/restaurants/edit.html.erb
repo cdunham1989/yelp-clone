@@ -1,0 +1,35 @@
+<h1>Edit Restaurant</h1>
+
+<%= form_with(model: @restaurant) do |form| %>
+
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@restaurant.errors.count, "error") %> prohibited
+        this restaurant from being saved:
+      </h2>
+      <ul>
+        <% @restaurant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :Name %>:<br>
+    <%= form.text_field :name, id: 'name' %>
+  </p>
+
+  <p>
+    <%= form.label :Description %>:<br>
+    <%= form.text_area :description, id: 'description' %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', restaurants_path %>

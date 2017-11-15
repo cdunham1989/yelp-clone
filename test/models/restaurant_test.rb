@@ -17,5 +17,4 @@ class RestaurantTest < ActiveSupport::TestCase
     restaurant = Restaurant.new(description: "bowfing")
     assert_not restaurant.save
   end
-  
 end
