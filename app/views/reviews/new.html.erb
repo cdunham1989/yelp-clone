@@ -3,12 +3,12 @@
 <%= form_with scope: :review, url: reviews_path, local: true do |form| %>
   <p>
     <%= form.label :Rating %><br>
-    <%= form.text_field :rating %>
+    <%= form.text_field :rating, id: 'rating' %>
   </p>
 
   <p>
     <%= form.label :Description %><br>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, id: 'description' %>
   </p>
 
   <p>
