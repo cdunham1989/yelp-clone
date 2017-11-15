@@ -20,4 +20,9 @@ class ReviewTest < ActiveSupport::TestCase
     review = Review.new(description: "good food")
     assert_not review.save
   end
+
+  test "should not save review unless rating is between 1 and 5" do
+    review = Review.new(rating: "7", description: "terrible")
+    assert_not review.save
+  end
 end
