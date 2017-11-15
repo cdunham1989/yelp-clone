@@ -8,7 +8,7 @@ def create
   @restaurant = Restaurant.find(params[:restaurant_id])
   @review.restaurant = @restaurant
   @review.save
-  redirect_to "/restaurants/#{@restaurant.id.to_s}/reviews"
+  redirect_to restaurant_reviews_path(@restaurant)
 end
 
 def show
