@@ -10,10 +10,10 @@
     <tr>
       <td><%= review.rating %></td>
       <td><%= review.description %></td>
-      <td><%= link_to 'Show', review_path(review) %></td>
+      <td><%= link_to 'Show', restaurant_review_path(review) %></td>
     </tr>
   <% end %>
 </table>
 
 
-<%= link_to 'New review', new_review_path %>
+<%= link_to 'New review', new_restaurant_review_path %>

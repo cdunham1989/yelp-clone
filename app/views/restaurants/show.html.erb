@@ -7,5 +7,5 @@
   <strong>Description:</strong>
   <%= @restaurant.description %>
 </p>
-
+<%= link_to 'See reviews', restaurant_reviews_path(@restaurant) %>
 <%= link_to 'Back', restaurants_path %>

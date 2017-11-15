@@ -7,12 +7,18 @@ class ReviewTest < ActiveSupport::TestCase
   end
 
   test "should be able to save review with a rating only" do
+    restaurant = Restaurant.new(name: "test name", description: "TGI's")
+    restaurant.save
     review = Review.new(rating: "4")
+    review.restaurant = restaurant
     assert review.save
   end
 
   test "should be able to save a review with a rating and a description" do
+    restaurant = Restaurant.new(name: "test name", description: "TGI's")
+    restaurant.save
     review = Review.new(rating: "4", description: "good food")
+    review.restaurant = restaurant
     assert review.save
   end
 
