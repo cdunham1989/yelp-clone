@@ -1,0 +1,19 @@
+<h1>Here are all the reviews:</h1>
+
+<table>
+  <tr>
+    <th>Rating</th>
+    <th>Description</th>
+  </tr>
+
+  <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.rating %></td>
+      <td><%= review.description %></td>
+      <td><%= link_to 'Show', review_path(review) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'New review', new_review_path %>
