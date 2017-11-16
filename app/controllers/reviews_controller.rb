@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.where(restaurant_id: params[:restaurant_id])
+    average_rating
   end
 
 def create
@@ -15,8 +16,21 @@ def show
   @review = Review.find(params[:id])
 end
 
+
+
+
+
 private
   def review_params
     params.require(:review) .permit(:rating, :description)
   end
+
+  def average_rating
+    total_rating = 0
+      @reviews.each do |review|
+        total_rating += review.rating
+       end
+    @average_rating = (total_rating/@reviews.length)
+  end
+
 end
