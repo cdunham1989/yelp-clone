@@ -31,6 +31,14 @@ def login(email="test@test.test", password="testtest")
   click_on "Log in"
 end
 
+def create_restaurant(name="Cafe Boomstyle", description="mmm mmmm")
+  visit restaurants_path
+  click_on "Add restaurant"
+  fill_in "name", with: name
+  fill_in "description", with: description
+  click_on "Save Restaurant"
+end
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

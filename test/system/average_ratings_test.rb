@@ -11,21 +11,16 @@ class AverageRatingsTest < ApplicationSystemTestCase
   end
 
   test 'should not return an average rating if no user has written' do
-    visit restaurants_path
-    click_on 'Add restaurant'
-    fill_in 'name', with: 'Cafe Boomstyle'
-    fill_in 'description', with: 'mmm mmmm'
-    click_on 'Save Restaurant'
+    create_restaurant
     click_on 'See reviews'
     assert_text 'Average rating for this restaurant: No ratings as yet'
   end
 
   test 'should return an average rating' do
-    visit restaurants_path
-    click_on 'Add restaurant'
-    fill_in 'name', with: 'Cafe Boomstyle'
-    fill_in 'description', with: 'mmm mmmm'
-    click_on 'Save Restaurant'
+    create_restaurant
+    signout
+    signup("chris@gmail.com", "123456")
+    click_on "Show"
     click_on 'See reviews'
     click_on 'New review'
     fill_in 'rating', with: '5'
