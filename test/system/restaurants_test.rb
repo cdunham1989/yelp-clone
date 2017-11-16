@@ -28,6 +28,7 @@ class RestaurantsTest < ApplicationSystemTestCase
     fill_in "description", with: "mmm mmmm"
     click_on "Save Restaurant"
     click_on "Edit"
+    p page.text
     fill_in "name", with: "Cafe face"
     fill_in "description", with: "oooo yeah"
     click_on "Update Restaurant"

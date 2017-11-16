@@ -19,8 +19,6 @@ def show
   @review = Review.find(params[:id])
 end
 
-
-
 private
   def review_params
     params.require(:review) .permit(:rating, :description)
@@ -44,5 +42,5 @@ private
   def find_restaurant
     return Restaurant.find(params[:restaurant_id])
   end
-  
+
 end

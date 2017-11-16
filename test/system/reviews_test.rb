@@ -3,12 +3,7 @@ require 'database_cleaner'
 
 class ReviewsTest < ApplicationSystemTestCase
   test "emails are displayed for reviews" do
-    visit restaurants_path
-    click_on "Register"
-    fill_in "Email", with: "chris@gmail.com"
-    fill_in "Password", with: "987654"
-    fill_in "Password confirmation", with: "987654"
-    click_on "Sign up"
+    signup
     visit restaurants_path
     click_on "Add restaurant"
     fill_in "name", with: "Cafe Boomstyle"
@@ -19,7 +14,7 @@ class ReviewsTest < ApplicationSystemTestCase
     fill_in "rating", with: "5"
     fill_in "description", with: "good food"
     click_on "Save Review"
-    assert_text "by chris@gmail.com"
+    assert_text "by test@test.test"
   end
 
   test "listing a new review for a particular restaurant" do
@@ -38,6 +33,7 @@ class ReviewsTest < ApplicationSystemTestCase
   end
 
   test "reviews page shows name of resturant" do
+    signup
     visit restaurants_path
     click_on "Add restaurant"
     fill_in "name", with: "Cafe Boomstyle"
@@ -45,6 +41,10 @@ class ReviewsTest < ApplicationSystemTestCase
     click_on "Save Restaurant"
     click_on "See reviews"
     assert_text "Here are all the reviews for Cafe Boomstyle:"
+  end
+
+  test "cannot review your own restaurant" do
+    signup
   end
 end
 
