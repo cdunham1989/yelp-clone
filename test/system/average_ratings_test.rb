@@ -1,8 +1,16 @@
 require 'application_system_test_case'
 
 class AverageRatingsTest < ApplicationSystemTestCase
-  test 'should not return an average rating if no user has written' do
+
+  def setup
     signup
+  end
+
+  def teardown
+    signout
+  end
+
+  test 'should not return an average rating if no user has written' do
     visit restaurants_path
     click_on 'Add restaurant'
     fill_in 'name', with: 'Cafe Boomstyle'
@@ -13,7 +21,6 @@ class AverageRatingsTest < ApplicationSystemTestCase
   end
 
   test 'should return an average rating' do
-    signup
     visit restaurants_path
     click_on 'Add restaurant'
     fill_in 'name', with: 'Cafe Boomstyle'
@@ -30,13 +37,4 @@ class AverageRatingsTest < ApplicationSystemTestCase
     click_on 'Save Review'
     assert_text 'Average rating for this restaurant: 4'
   end
-end
-
-def signup
-  visit restaurants_path
-  click_on "Register"
-  fill_in "Email", with: "test@test.test"
-  fill_in "Password", with: "testtest"
-  fill_in "Password confirmation", with: "testtest"
-  click_on "Sign up"
 end
