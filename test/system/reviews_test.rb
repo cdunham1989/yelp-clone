@@ -9,7 +9,6 @@ class ReviewsTest < ApplicationSystemTestCase
 
   test "listing a new review for a particular restaurant" do
     visit restaurants_path
-
     click_on "Add restaurant"
 
     fill_in "name", with: "Cafe Boomstyle"

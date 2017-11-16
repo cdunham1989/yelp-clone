@@ -37,4 +37,28 @@ class RestaurantsTest < ApplicationSystemTestCase
     page.accept_alert
     assert_no_text "This should be deleted"
   end
+
+  test "users can sign-up" do
+    signup
+    assert_text "Welcome! You have signed up successfully."
+  end
+
+  test "users can login" do
+    signup
+    click_on "Logout"
+    click_on "Login"
+    fill_in "Email", with: "test@test.test"
+    fill_in "Password", with: "testtest"
+    click_on "Log in"
+    assert_text "Signed in successfully."
+  end
+end
+
+def signup
+  visit restaurants_path
+  click_on "Register"
+  fill_in "Email", with: "test@test.test"
+  fill_in "Password", with: "testtest"
+  fill_in "Password confirmation", with: "testtest"
+  click_on "Sign up"
 end
