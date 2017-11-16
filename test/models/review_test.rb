@@ -31,4 +31,5 @@ class ReviewTest < ActiveSupport::TestCase
     review = Review.new(rating: "7", description: "terrible")
     assert_not review.save
   end
+
 end
