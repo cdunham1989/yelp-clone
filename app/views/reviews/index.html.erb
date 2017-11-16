@@ -10,6 +10,7 @@
     <tr>
       <td><%= review.rating %></td>
       <td><%= review.description %></td>
+      <td><%= link_to 'Show review', restaurant_review_path(:id => review.id) %></td>
     </tr>
   <% end %>
 </table>
