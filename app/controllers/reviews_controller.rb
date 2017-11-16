@@ -18,8 +18,6 @@ end
 
 
 
-
-
 private
   def review_params
     params.require(:review) .permit(:rating, :description)
@@ -27,15 +25,15 @@ private
 
   def average_rating
     total_rating = 0
-      @reviews.each do |review|
-        total_rating += review.rating
-       end
+    @reviews.each do |review|
+      total_rating += review.rating
+    end
 
-       if @reviews.empty?
-         @average_rating = 'No ratings as yet'
-       else
-         @average_rating = (total_rating/@reviews.length)
-       end
+    if @reviews.empty?
+      @average_rating = 'No ratings as yet'
+    else
+      @average_rating = (total_rating/@reviews.length)
+    end
   end
 
 end

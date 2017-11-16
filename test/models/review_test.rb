@@ -31,4 +31,14 @@ class ReviewTest < ActiveSupport::TestCase
     review = Review.new(rating: "7", description: "terrible")
     assert_not review.save
   end
+
+  test "should return an average rating" do
+    restaurant = Restaurant.new(name: "cafe burp", description: "airy")
+    restaurant.save
+    review = Review.new(rating: "3", description: "average")
+    review.save
+
+    assert reviews.index.average_rating.average_rating == 2
+  end
+
 end
