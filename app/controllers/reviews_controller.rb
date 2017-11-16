@@ -30,7 +30,12 @@ private
       @reviews.each do |review|
         total_rating += review.rating
        end
-    @average_rating = (total_rating/@reviews.length)
+
+       if @reviews.empty?
+         @average_rating = 'No ratings as yet'
+       else
+         @average_rating = (total_rating/@reviews.length)
+       end
   end
 
 end
