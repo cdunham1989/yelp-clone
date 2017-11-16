@@ -6,20 +6,23 @@ class ReviewsController < ApplicationController
   end
 
 def create
-  @review = Review.new(review_params)
   @restaurant = find_restaurant
-  @review.restaurant = @restaurant
-  @review.user = current_user
-  @review.save
-  redirect_to restaurant_reviews_path(@restaurant)
+  if @restaurant.user == current_user
+    flash[:notice] = "Cannot review your own restaurant"
+    redirect_to restaurant_reviews_path(@restaurant)
+  else
+    @review = Review.new(review_params)
+    @review.restaurant = @restaurant
+    @review.user = current_user
+    @review.save
+    redirect_to restaurant_reviews_path(@restaurant)
+  end
 end
 
 def show
   @restaurant = find_restaurant
   @review = Review.find(params[:id])
 end
-
-
 
 private
   def review_params
@@ -44,5 +47,5 @@ private
   def find_restaurant
     return Restaurant.find(params[:restaurant_id])
   end
-  
+
 end

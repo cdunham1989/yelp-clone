@@ -13,13 +13,22 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user = current_user
     @restaurant.save
     redirect_to @restaurant
   end
 
+  # # def create
+  #   @review = Review.new(review_params)
+  #   @restaurant = find_restaurant
+  #   @review.restaurant = @restaurant
+  #   @review.user = current_user
+  #   @review.save
+  #   redirect_to restaurant_reviews_path(@restaurant)
+  # end
+
   def update
     @restaurant = Restaurant.find(params[:id])
-
     if @restaurant.update(restaurant_params)
       redirect_to @restaurant
     else
@@ -34,7 +43,6 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
-
     redirect_to restaurants_path
   end
 

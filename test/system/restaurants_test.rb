@@ -9,7 +9,7 @@ class RestaurantsTest < ApplicationSystemTestCase
   end
 
   def teardown
-    click_on "Logout"
+    signout
   end
 
   test "listing a new restaurant" do
@@ -56,20 +56,4 @@ class RestaurantsTest < ApplicationSystemTestCase
     login
     assert_text "Signed in successfully."
   end
-end
-
-def signup
-  visit restaurants_path
-  click_on "Register"
-  fill_in "Email", with: "test@test.test"
-  fill_in "Password", with: "testtest"
-  fill_in "Password confirmation", with: "testtest"
-  click_on "Sign up"
-end
-
-def login
-  click_on "Login"
-  fill_in "Email", with: "test@test.test"
-  fill_in "Password", with: "testtest"
-  click_on "Log in"
 end
