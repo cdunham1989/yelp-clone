@@ -1,7 +1,16 @@
 require "application_system_test_case"
 require "database_cleaner"
+require 'minitest/hooks'
 
 class RestaurantsTest < ApplicationSystemTestCase
+
+  def setup
+    signup
+  end
+
+  def teardown
+    click_on "Logout"
+  end
 
   test "listing a new restaurant" do
     visit restaurants_path
@@ -39,17 +48,12 @@ class RestaurantsTest < ApplicationSystemTestCase
   end
 
   test "users can sign-up" do
-    signup
     assert_text "Welcome! You have signed up successfully."
   end
 
   test "users can login" do
-    signup
     click_on "Logout"
-    click_on "Login"
-    fill_in "Email", with: "test@test.test"
-    fill_in "Password", with: "testtest"
-    click_on "Log in"
+    login
     assert_text "Signed in successfully."
   end
 end
@@ -61,4 +65,11 @@ def signup
   fill_in "Password", with: "testtest"
   fill_in "Password confirmation", with: "testtest"
   click_on "Sign up"
+end
+
+def login
+  click_on "Login"
+  fill_in "Email", with: "test@test.test"
+  fill_in "Password", with: "testtest"
+  click_on "Log in"
 end

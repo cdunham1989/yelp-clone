@@ -1,6 +1,7 @@
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'database_cleaner'
+require 'minitest/hooks/default'
 
 DatabaseCleaner.strategy = :transaction
 class Minitest::Spec

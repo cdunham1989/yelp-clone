@@ -8,6 +8,7 @@ def create
   @review = Review.new(review_params)
   @restaurant = find_restaurant
   @review.restaurant = @restaurant
+  @review.user = current_user
   @review.save
   redirect_to restaurant_reviews_path(@restaurant)
 end
